@@ -9,6 +9,7 @@ defmodule Scoreboard.Teams.Player do
     field :first_name, :string
     field :last_name, :string
     field :type, :integer
+    field :team_id, :id
 
     timestamps()
   end

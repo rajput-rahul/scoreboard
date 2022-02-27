@@ -9,6 +9,7 @@ defmodule Scoreboard.Repo.Migrations.CreatePlayers do
       add :type, :integer
       add :country, :string
       add :bio, :string
+      add :team_id, references(:teams, on_delete: :nothing)
 
       timestamps()
     end
