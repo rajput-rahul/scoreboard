@@ -1,6 +1,7 @@
 defmodule Scoreboard.Teams.Player do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Scoreboard.Teams.Team
 
   schema "players" do
     field :age, :integer
@@ -9,7 +10,8 @@ defmodule Scoreboard.Teams.Player do
     field :first_name, :string
     field :last_name, :string
     field :type, :integer
-    field :team_id, :id
+
+    belongs_to :team, Team
 
     timestamps()
   end
@@ -17,7 +19,7 @@ defmodule Scoreboard.Teams.Player do
   @doc false
   def changeset(player, attrs) do
     player
-    |> cast(attrs, [:first_name, :last_name, :age, :type, :country, :bio])
-    |> validate_required([:first_name, :last_name, :age, :type, :country, :bio])
+    |> cast(attrs, [:first_name, :last_name, :age, :type, :country, :bio, :team_id])
+    |> validate_required([:first_name, :last_name, :age, :type, :country, :bio, :team_id])
   end
 end

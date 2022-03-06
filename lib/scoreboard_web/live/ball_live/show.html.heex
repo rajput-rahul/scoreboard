@@ -1,0 +1,51 @@
+<h1>Show Ball</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.ball_show_path(@socket, :show, @ball)}>
+    <.live_component
+      module={ScoreboardWeb.BallLive.FormComponent}
+      id={@ball.id}
+      title={@page_title}
+      action={@live_action}
+      ball={@ball}
+      return_to={Routes.ball_show_path(@socket, :show, @ball)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Over:</strong>
+    <%= @ball.over %>
+  </li>
+
+  <li>
+    <strong>Ball in over:</strong>
+    <%= @ball.ball_in_over %>
+  </li>
+
+  <li>
+    <strong>Game ball:</strong>
+    <%= @ball.game_ball %>
+  </li>
+
+  <li>
+    <strong>Ball type:</strong>
+    <%= @ball.ball_type %>
+  </li>
+
+  <li>
+    <strong>Desc:</strong>
+    <%= @ball.desc %>
+  </li>
+
+  <li>
+    <strong>Run scored:</strong>
+    <%= @ball.run_scored %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.ball_show_path(@socket, :edit, @ball), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.ball_index_path(@socket, :index) %></span>

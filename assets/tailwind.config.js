@@ -5,7 +5,7 @@ module.exports = {
     './css/**/*.css',
     '../lib/*_web/**/*.*ex'
   ],
-  darkMode: 'class', // or 'media' or 'class'
+  // darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {},
   },

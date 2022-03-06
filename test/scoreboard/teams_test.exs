@@ -21,7 +21,14 @@ defmodule Scoreboard.TeamsTest do
     end
 
     test "create_player/1 with valid data creates a player" do
-      valid_attrs = %{age: 42, bio: "some bio", country: "some country", first_name: "some first_name", last_name: "some last_name", type: 42}
+      valid_attrs = %{
+        age: 42,
+        bio: "some bio",
+        country: "some country",
+        first_name: "some first_name",
+        last_name: "some last_name",
+        type: 42
+      }
 
       assert {:ok, %Player{} = player} = Teams.create_player(valid_attrs)
       assert player.age == 42
@@ -38,7 +45,15 @@ defmodule Scoreboard.TeamsTest do
 
     test "update_player/2 with valid data updates the player" do
       player = player_fixture()
-      update_attrs = %{age: 43, bio: "some updated bio", country: "some updated country", first_name: "some updated first_name", last_name: "some updated last_name", type: 43}
+
+      update_attrs = %{
+        age: 43,
+        bio: "some updated bio",
+        country: "some updated country",
+        first_name: "some updated first_name",
+        last_name: "some updated last_name",
+        type: 43
+      }
 
       assert {:ok, %Player{} = player} = Teams.update_player(player, update_attrs)
       assert player.age == 43
@@ -85,7 +100,12 @@ defmodule Scoreboard.TeamsTest do
     end
 
     test "create_team/1 with valid data creates a team" do
-      valid_attrs = %{country: "some country", dress_color: "some dress_color", name: "some name", rank: 42}
+      valid_attrs = %{
+        country: "some country",
+        dress_color: "some dress_color",
+        name: "some name",
+        rank: 42
+      }
 
       assert {:ok, %Team{} = team} = Teams.create_team(valid_attrs)
       assert team.country == "some country"
@@ -100,7 +120,13 @@ defmodule Scoreboard.TeamsTest do
 
     test "update_team/2 with valid data updates the team" do
       team = team_fixture()
-      update_attrs = %{country: "some updated country", dress_color: "some updated dress_color", name: "some updated name", rank: 43}
+
+      update_attrs = %{
+        country: "some updated country",
+        dress_color: "some updated dress_color",
+        name: "some updated name",
+        rank: 43
+      }
 
       assert {:ok, %Team{} = team} = Teams.update_team(team, update_attrs)
       assert team.country == "some updated country"
