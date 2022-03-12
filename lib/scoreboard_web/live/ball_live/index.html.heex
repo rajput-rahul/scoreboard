@@ -1,7 +1,5 @@
-<h1>Listing balls</h1>
-
-<%= if @live_action in [:new, :edit] do %>
-  <.modal return_to={Routes.ball_index_path(@socket, :index)}>
+<%= if @live_action in [:new, :edit] do %>  
+  <.modal return_to={Routes.ball_index_path(@socket, :index)} class="modal">
     <.live_component
       module={ScoreboardWeb.BallLive.FormComponent}
       id={@ball.id || :new}
@@ -12,45 +10,52 @@
     />
   </.modal>
 <% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Ball</th>
-      <th>Run scored</th>
-      <th>Desc</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="balls">
-    <%= for ball <- @balls do %>
-      <tr id={"ball-#{ball.id}"}>
-        <td><%= ball.over %>.<%= ball.ball_in_over %></td>
-        <td><%= ball.run_scored %></td>
-        <td><%= ball.desc %></td>
-
-        <td>
-          <span><%= live_redirect "Show", to: Routes.ball_show_path(@socket, :show, ball) %></span>
-          <span><%= live_patch "Edit", to: Routes.ball_index_path(@socket, :edit, ball) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: ball.id, data: [confirm: "Are you sure?"] %></span>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<span><%= live_patch "New Ball", to: Routes.ball_index_path(@socket, :new) %></span>
-
-
-<div class="container p-8">
-  <ol class="relative border-l border-gray-200 dark:border-gray-700">
-  <%= for ball <- @balls do %>                  
-      <li class="mb-10 ml-4">
-          <div class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"><%= ball.over %>.<%= ball.ball_in_over %></time>
-          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"><%= ball.desc %></p>
-      </li>
-    <% end %>
-  </ol>
+<div class="container">
+  <div class="grid grid-cols-2 divide-x-2 border-b-2">
+    <div class="grid grid-rows-2">
+      <div class="w-full columns-2">
+        <div class="px-2">
+          Virat Kohli
+        </div>
+        <div class=" flex px-2 justify-end">
+          0 (5b)
+        </div>
+      </div>
+      <div class="w-full columns-2">
+        <div class="px-2">
+          Rohit Sharma
+        </div>
+        <div class=" flex px-2 justify-end">
+          10 (5b)
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-rows-2">
+      <div class="w-full columns-2">
+        <div class="px-2">
+          Shoaib Akhtar
+        </div>
+        <div class="flex px-2 justify-end">
+          7-3-5-8
+        </div>
+      </div>
+      <div class="w-full columns-2">
+        <div class="px-2">
+          Mohd. Najim
+        </div>
+        <div class="flex px-2 justify-end">
+          17-3-15-8
+        </div>
+      </div>
+    </div>
+  </div>
+  // Enter information of Balls
 </div>
+
+<%= for ball <- @balls do %>
+<div class="block" id={"ball-#{ball.id}"}>
+   <strong><%= ball.over %>.<%= ball.ball_in_over %></strong> <%= ball.desc %>
+</div>
+<% end %>
+
+<span><%= live_patch "New Ball", to: Routes.ball_index_path(@socket, :new), class: "button is-primary" %></span>
