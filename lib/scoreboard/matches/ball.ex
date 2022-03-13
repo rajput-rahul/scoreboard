@@ -21,6 +21,15 @@ defmodule Scoreboard.Matches.Ball do
   def changeset(ball, attrs) do
     ball
     |> cast(attrs, [:over_id, :number, :type, :desc, :runs, :wicket, :boundary, :boundary_type])
-    |> validate_required([:over_id, :number, :type, :desc, :runs, :wicket, :boundary, :boundary_type])
+    |> validate_required([
+      :over_id,
+      :number,
+      :type,
+      :desc,
+      :runs,
+      :wicket,
+      :boundary,
+      :boundary_type
+    ])
   end
 end

@@ -299,7 +299,9 @@ defmodule Scoreboard.Matches do
   end
 
   def list_overs_by_match(match_id) do
-    Repo.all(from o in Over,where: o.match_id == ^match_id, order_by: {:desc, o.id}, preload: :balls)
+    Repo.all(
+      from o in Over, where: o.match_id == ^match_id, order_by: {:desc, o.id}, preload: :balls
+    )
   end
 
   def subscribe do
@@ -307,6 +309,7 @@ defmodule Scoreboard.Matches do
   end
 
   defp broadcast({:error, _reason} = error, _event), do: error
+
   defp broadcast({:ok, ball}, event) do
     Phoenix.PubSub.broadcast(Scoreboard.PubSub, "balls", {event, ball})
     {:ok, ball}

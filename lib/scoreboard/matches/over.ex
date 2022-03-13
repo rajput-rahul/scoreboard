@@ -10,7 +10,11 @@ defmodule Scoreboard.Matches.Over do
     field :no_balls, :integer, default: 0
     field :number, :integer
     field :powerplay_active, :boolean, default: false
-    field :powerplay_type, Ecto.Enum, values: [:no_powerplay, :bowling, :batting], default: :no_powerplay
+
+    field :powerplay_type, Ecto.Enum,
+      values: [:no_powerplay, :bowling, :batting],
+      default: :no_powerplay
+
     field :run_scored, :integer, default: 0
     field :sixes, :integer, default: 0
     field :wickets, :integer, default: 0
@@ -26,7 +30,35 @@ defmodule Scoreboard.Matches.Over do
   @doc false
   def changeset(over, attrs) do
     over
-    |> cast(attrs, [:number, :powerplay_active, :powerplay_type, :ball_thrown, :run_scored, :fours, :sixes, :wickets, :wides, :no_balls, :hattricks, :match_id, :finished])
-    |> validate_required([:number, :powerplay_active, :powerplay_type, :ball_thrown, :run_scored, :fours, :sixes, :wickets, :wides, :no_balls, :hattricks, :match_id, :finished])
+    |> cast(attrs, [
+      :number,
+      :powerplay_active,
+      :powerplay_type,
+      :ball_thrown,
+      :run_scored,
+      :fours,
+      :sixes,
+      :wickets,
+      :wides,
+      :no_balls,
+      :hattricks,
+      :match_id,
+      :finished
+    ])
+    |> validate_required([
+      :number,
+      :powerplay_active,
+      :powerplay_type,
+      :ball_thrown,
+      :run_scored,
+      :fours,
+      :sixes,
+      :wickets,
+      :wides,
+      :no_balls,
+      :hattricks,
+      :match_id,
+      :finished
+    ])
   end
 end

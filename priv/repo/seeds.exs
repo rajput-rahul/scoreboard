@@ -84,14 +84,14 @@ alias Scoreboard.{Matches, Teams}
   })
 
 {:ok, m1} =
-    Matches.create_match(%{
-      country: "India",
-      ground: "Green park",
-      name: "Match 1",
-      winner: "",
-      team1_id: t1.id,
-      team2_id: t2.id
-    })
+  Matches.create_match(%{
+    country: "India",
+    ground: "Green park",
+    name: "Match 1",
+    winner: "",
+    team1_id: t1.id,
+    team2_id: t2.id
+  })
 
 {:ok, o1} =
   Matches.create_over(%{
@@ -100,62 +100,73 @@ alias Scoreboard.{Matches, Teams}
     finished: true
   })
 
-  {:ok, o2} =
-    Matches.create_over(%{
-      number: 2,
-      match_id: m1.id
-    })
+{:ok, o2} =
+  Matches.create_over(%{
+    number: 2,
+    match_id: m1.id
+  })
 
-{:ok, _} = Matches.create_ball(%{
-  number: 1,
-  over_id: o1.id,
-  desc: "Simply covered the ball",
-  runs: 0
-})
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 1,
+    over_id: o1.id,
+    desc: "Simply covered the ball",
+    runs: 0
+  })
 
-{:ok, _} = Matches.create_ball(%{
-  number: 2,
-  over_id: o1.id,
-  desc: "Loft of to six, and it's huge six",
-  runs: 6
-})
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 2,
+    over_id: o1.id,
+    desc: "Loft of to six, and it's huge six",
+    runs: 6
+  })
 
-{:ok, _} = Matches.create_ball(%{
-  number: 3,
-  over_id: o1.id,
-  desc: "Ball goes directly to Four, another boundary",
-  runs: 4
-})
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 3,
+    over_id: o1.id,
+    desc: "Ball goes directly to Four, another boundary",
+    runs: 4
+  })
 
-{:ok, _} = Matches.create_ball(%{
-  number: 4,
-  over_id: o1.id,
-  desc: "Yorker ball direct to pads, it's appeal to umpire.",
-  runs: 0
-})
-{:ok, _} = Matches.create_ball(%{
-  number: 5,
-  over_id: o1.id,
-  desc: "Virat just defended it.",
-  runs: 0
-})
-{:ok, _} = Matches.create_ball(%{
-  number: 6,
-  over_id: o1.id,
-  desc: "Wide ball",
-  runs: 1,
-  type: :wide
-})
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 4,
+    over_id: o1.id,
+    desc: "Yorker ball direct to pads, it's appeal to umpire.",
+    runs: 0
+  })
 
-{:ok, _} = Matches.create_ball(%{
-  number: 6,
-  over_id: o1.id,
-  desc: "Another Boundary, bravo Virat",
-  runs: 4
-})
-{:ok, _} = Matches.create_ball(%{
-  number: 1,
-  over_id: o2.id,
-  desc: "Another Boundary by Rohit, Wow he is following Virat",
-  runs: 4
-})
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 5,
+    over_id: o1.id,
+    desc: "Virat just defended it.",
+    runs: 0
+  })
+
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 6,
+    over_id: o1.id,
+    desc: "Wide ball",
+    runs: 1,
+    type: :wide
+  })
+
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 6,
+    over_id: o1.id,
+    desc: "Another Boundary, bravo Virat",
+    runs: 4
+  })
+
+{:ok, _} =
+  Matches.create_ball(%{
+    number: 1,
+    over_id: o2.id,
+    desc: "Another Boundary by Rohit, Wow he is following Virat",
+    runs: 4
+  })

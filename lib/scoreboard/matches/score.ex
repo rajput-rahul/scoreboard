@@ -10,7 +10,6 @@ defmodule Scoreboard.Matches.Score do
 
     belongs_to :match, Match
 
-
     timestamps()
   end
 
