@@ -11,10 +11,12 @@
   </.modal>
 <% end %>
 
-<div class="container text-sm">
+<div class="container text-sm pt-4 pr-96">
   <%= for over <- @overs do %>
     <ScoreboardWeb.OverLive.OverComponent.over over={over}/>
   <% end %>
 </div>
 
+<!-- 
 <span><%= live_patch "New Ball", to: Routes.over_index_path(@socket, :new), class: "button is-primary" %></span>
+-->

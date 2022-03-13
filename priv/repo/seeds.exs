@@ -96,7 +96,8 @@ alias Scoreboard.{Matches, Teams}
 {:ok, o1} =
   Matches.create_over(%{
     number: 1,
-    match_id: m1.id
+    match_id: m1.id,
+    finished: true
   })
 
   {:ok, o2} =

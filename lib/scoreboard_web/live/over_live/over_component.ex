@@ -6,6 +6,7 @@ defmodule ScoreboardWeb.OverLive.OverComponent do
 
   def over(assigns) do
     ~H"""
+    <%= if assigns.over.finished do %>
     <div class="bg-gray-500 text-white p-1">
       END OF OVER: 10 | 20 Run | IND: 100/1
     </div>
@@ -47,11 +48,12 @@ defmodule ScoreboardWeb.OverLive.OverComponent do
         </div>
       </div>
     </div>
+    <% end %>
     <div id="discussions" class="">
     </div>
     <div class="grid divide-y">
       <%= for ball <- assigns.over.balls do %>
-          <OverLive.BallComponent.ball ball={ball}/>
+        <OverLive.BallComponent.ball ball={ball}/>
       <% end %>
     </div>
     """
