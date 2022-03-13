@@ -1,17 +1,18 @@
 defmodule Scoreboard.Matches.Ball do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Scoreboard.Matches.Match
+  alias Scoreboard.Matches.Over
 
   schema "balls" do
-    field :ball_in_over, :integer
-    field :ball_type, :integer
+    field :number, :integer
+    field :type, Ecto.Enum, values: [:normal, :wide, :no_ball, :leg_by], default: :normal
     field :desc, :string
-    field :game_ball, :integer
-    field :over, :integer
-    field :run_scored, :integer
+    field :runs, :integer
+    field :wicket, :boolean, default: false
+    field :boundary, :boolean, default: false
+    field :boundary_type, Ecto.Enum, values: [:no_boundary, :six, :four], default: :no_boundary
 
-    belongs_to :match, Match
+    belongs_to :over, Over
 
     timestamps()
   end
@@ -19,7 +20,7 @@ defmodule Scoreboard.Matches.Ball do
   @doc false
   def changeset(ball, attrs) do
     ball
-    |> cast(attrs, [:over, :ball_in_over, :game_ball, :ball_type, :desc, :run_scored, :match_id])
-    |> validate_required([:over, :ball_in_over, :game_ball, :ball_type, :desc, :run_scored])
+    |> cast(attrs, [:over_id, :number, :type, :desc, :runs, :wicket, :boundary, :boundary_type])
+    |> validate_required([:over_id, :number, :type, :desc, :runs, :wicket, :boundary, :boundary_type])
   end
 end

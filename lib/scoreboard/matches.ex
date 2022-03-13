@@ -6,7 +6,7 @@ defmodule Scoreboard.Matches do
   import Ecto.Query, warn: false
   alias Scoreboard.Repo
 
-  alias Scoreboard.Matches.Match
+  alias Scoreboard.Matches.{Match, Over, Ball, Score}
 
   @doc """
   Returns the list of matches.
@@ -102,8 +102,6 @@ defmodule Scoreboard.Matches do
     Match.changeset(match, attrs)
   end
 
-  alias Scoreboard.Matches.Score
-
   @doc """
   Returns the list of scores.
 
@@ -198,8 +196,6 @@ defmodule Scoreboard.Matches do
     Score.changeset(score, attrs)
   end
 
-  alias Scoreboard.Matches.Ball
-
   @doc """
   Returns the list of balls.
 
@@ -209,8 +205,8 @@ defmodule Scoreboard.Matches do
       [%Ball{}, ...]
 
   """
-  def list_balls do
-    Repo.all(from b in Ball, order_by: {:desc, b.id})
+  def list_balls_with_over do
+    Repo.all(from b in Ball, order_by: {:desc, b.id}, preload: :over)
   end
 
   @doc """
@@ -294,6 +290,12 @@ defmodule Scoreboard.Matches do
   """
   def change_ball(%Ball{} = ball, attrs \\ %{}) do
     Ball.changeset(ball, attrs)
+  end
+
+  def create_over(attrs \\ %{}) do
+    %Over{}
+    |> Over.changeset(attrs)
+    |> Repo.insert()
   end
 
   def subscribe do

@@ -93,12 +93,16 @@ alias Scoreboard.{Matches, Teams}
       team2_id: t2.id
     })
 
-    {:ok, _b1} = Matches.create_ball(%{
-      ball_in_over: 1,
-      over: 1,
-      game_ball: 1,
-      desc: "Simple covered the ball",
-      run_scored: 0,
-      ball_type: 1,
-      match_id: m1.id
-    })
+{:ok, o1} =
+  Matches.create_over(%{
+    number: 1,
+    match_id: m1.id
+  })
+
+{:ok, _b1} = Matches.create_ball(%{
+  number: 1,
+  over_id: o1.id,
+  desc: "Simply covered the ball",
+  runs: 0,
+  type: :normal
+})

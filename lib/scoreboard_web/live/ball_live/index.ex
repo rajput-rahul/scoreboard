@@ -47,6 +47,6 @@ defmodule ScoreboardWeb.BallLive.Index do
   end
 
   defp list_balls do
-    Matches.list_balls()
+    Matches.list_balls_with_over()
   end
 end

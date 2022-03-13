@@ -9,29 +9,25 @@
     phx-change="validate"
     phx-submit="save">
   
-    <%= label f, :over %>
-    <%= number_input f, :over %>
-    <%= error_tag f, :over %>
+    <%= label f, :over_id %>
+    <%= number_input f, :over_id %>
+    <%= error_tag f, :over_id %>
   
-    <%= label f, :ball_in_over %>
-    <%= number_input f, :ball_in_over %>
-    <%= error_tag f, :ball_in_over %>
+    <%= label f, :number %>
+    <%= number_input f, :number %>
+    <%= error_tag f, :number %>
   
-    <%= label f, :game_ball %>
-    <%= number_input f, :game_ball %>
-    <%= error_tag f, :game_ball %>
-  
-    <%= label f, :ball_type %>
-    <%= number_input f, :ball_type %>
-    <%= error_tag f, :ball_type %>
+    <%= label f, :type %>
+    <%= select f, :type, [:normal, :wide, :no_ball, :leg_by] %>
+    <%= error_tag f, :type %>
   
     <%= label f, :desc %>
     <%= text_input f, :desc %>
     <%= error_tag f, :desc %>
   
-    <%= label f, :run_scored %>
-    <%= number_input f, :run_scored %>
-    <%= error_tag f, :run_scored %>
+    <%= label f, :runs %>
+    <%= number_input f, :runs %>
+    <%= error_tag f, :runs %>
   
     <div>
       <%= submit "Save", phx_disable_with: "Saving..." %>

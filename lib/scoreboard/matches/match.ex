@@ -2,7 +2,7 @@ defmodule Scoreboard.Matches.Match do
   use Ecto.Schema
   import Ecto.Changeset
   alias Scoreboard.Teams.Team
-  alias Scoreboard.Matches.Ball
+  alias Scoreboard.Matches.Over
 
   schema "matches" do
     field :country, :string
@@ -12,7 +12,7 @@ defmodule Scoreboard.Matches.Match do
     belongs_to :team1, Team
     belongs_to :team2, Team
 
-    has_many :balls, Ball
+    has_many :overs, Over
 
     timestamps()
   end
