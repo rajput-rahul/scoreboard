@@ -298,6 +298,10 @@ defmodule Scoreboard.Matches do
     |> Repo.insert()
   end
 
+  def list_overs_by_match(match_id) do
+    Repo.all(from o in Over,where: o.match_id == ^match_id, order_by: {:desc, o.id}, preload: :balls)
+  end
+
   def subscribe do
     Phoenix.PubSub.subscribe(Scoreboard.PubSub, "balls")
   end

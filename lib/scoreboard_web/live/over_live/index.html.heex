@@ -1,0 +1,20 @@
+<%= if @live_action in [:new, :edit] do %> 
+  <.modal return_to={Routes.over_index_path(@socket, :index)} class="modal">
+    <.live_component
+      module={ScoreboardWeb.OverLive.FormComponent}
+      id={@ball.id || :new}
+      title={@page_title}
+      action={@live_action}
+      ball={@ball}
+      return_to={Routes.over_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<div class="container text-sm">
+  <%= for over <- @overs do %>
+    <ScoreboardWeb.OverLive.OverComponent.over over={over}/>
+  <% end %>
+</div>
+
+<span><%= live_patch "New Ball", to: Routes.over_index_path(@socket, :new), class: "button is-primary" %></span>

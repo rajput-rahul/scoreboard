@@ -14,7 +14,7 @@ defmodule ScoreboardWeb.LiveHelpers do
 
       <.modal return_to={Routes.ball_index_path(@socket, :index)}>
         <.live_component
-          module={ScoreboardWeb.BallLive.FormComponent}
+          module={ScoreboardWeb.OverLive.FormComponent}
           id={@ball.id || :new}
           title={@page_title}
           action={@live_action}

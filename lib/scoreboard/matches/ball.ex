@@ -5,7 +5,7 @@ defmodule Scoreboard.Matches.Ball do
 
   schema "balls" do
     field :number, :integer
-    field :type, Ecto.Enum, values: [:normal, :wide, :no_ball, :leg_by], default: :normal
+    field :type, Ecto.Enum, values: [:normal, :wide, :no, :leg_by], default: :normal
     field :desc, :string
     field :runs, :integer
     field :wicket, :boolean, default: false

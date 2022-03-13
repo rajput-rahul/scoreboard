@@ -18,12 +18,12 @@ defmodule ScoreboardWeb.Router do
     pipe_through :browser
 
     live "/", PageLive
-    live "/balls", BallLive.Index, :index
-    live "/balls/new", BallLive.Index, :new
-    live "/balls/:id/edit", BallLive.Index, :edit
+    live "/balls", OverLive.Index, :index
+    live "/balls/new", OverLive.Index, :new
+    live "/balls/:id/edit", OverLive.Index, :edit
 
-    live "/balls/:id", BallLive.Show, :show
-    live "/balls/:id/show/edit", BallLive.Show, :edit
+    live "/balls/:id", OverLive.Show, :show
+    live "/balls/:id/show/edit", OverLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

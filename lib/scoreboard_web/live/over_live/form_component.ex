@@ -1,4 +1,4 @@
-defmodule ScoreboardWeb.BallLive.FormComponent do
+defmodule ScoreboardWeb.OverLive.FormComponent do
   use ScoreboardWeb, :live_component
 
   alias Scoreboard.Matches

@@ -1,14 +1,14 @@
 <h1>Show Ball</h1>
 
 <%= if @live_action in [:edit] do %>
-  <.modal return_to={Routes.ball_show_path(@socket, :show, @ball)}>
+  <.modal return_to={Routes.over_show_path(@socket, :show, @ball)}>
     <.live_component
-      module={ScoreboardWeb.BallLive.FormComponent}
+      module={ScoreboardWeb.OverLive.FormComponent}
       id={@ball.id}
       title={@page_title}
       action={@live_action}
       ball={@ball}
-      return_to={Routes.ball_show_path(@socket, :show, @ball)}
+      return_to={Routes.over_show_path(@socket, :show, @ball)}
     />
   </.modal>
 <% end %>
@@ -47,5 +47,5 @@
 
 </ul>
 
-<span><%= live_patch "Edit", to: Routes.ball_show_path(@socket, :edit, @ball), class: "button" %></span> |
-<span><%= live_redirect "Back", to: Routes.ball_index_path(@socket, :index) %></span>
+<span><%= live_patch "Edit", to: Routes.over_show_path(@socket, :edit, @ball), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.over_index_path(@socket, :index) %></span>

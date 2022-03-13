@@ -1,4 +1,4 @@
-defmodule ScoreboardWeb.BallLive.Index do
+defmodule ScoreboardWeb.OverLive.Index do
   use ScoreboardWeb, :live_view
 
   alias Scoreboard.Matches
@@ -7,7 +7,7 @@ defmodule ScoreboardWeb.BallLive.Index do
   @impl true
   def mount(_params, _session, socket) do
     if connected?(socket), do: Matches.subscribe()
-    {:ok, assign(socket, :balls, list_balls())}
+    {:ok, assign(socket, :overs, list_overs())}
   end
 
   @impl true
@@ -48,5 +48,10 @@ defmodule ScoreboardWeb.BallLive.Index do
 
   defp list_balls do
     Matches.list_balls_with_over()
+  end
+
+  defp list_overs do
+    # TODO: Need to add match_id here
+    Matches.list_overs_by_match(1)
   end
 end

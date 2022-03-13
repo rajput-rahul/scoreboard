@@ -1,4 +1,4 @@
-defmodule ScoreboardWeb.BallLive.Show do
+defmodule ScoreboardWeb.OverLive.Show do
   use ScoreboardWeb, :live_view
 
   alias Scoreboard.Matches

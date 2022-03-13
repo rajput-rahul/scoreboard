@@ -1,4 +1,4 @@
-defmodule ScoreboardWeb.BallLiveTest do
+defmodule ScoreboardWeb.OverLiveTest do
   use ScoreboardWeb.ConnCase
 
   import Phoenix.LiveViewTest

@@ -15,6 +15,7 @@ defmodule Scoreboard.Matches.Over do
     field :sixes, :integer, default: 0
     field :wickets, :integer, default: 0
     field :wides, :integer, default: 0
+    field :finished, :boolean, default: false
     belongs_to :match, Match
 
     has_many :balls, Ball
@@ -25,7 +26,7 @@ defmodule Scoreboard.Matches.Over do
   @doc false
   def changeset(over, attrs) do
     over
-    |> cast(attrs, [:number, :powerplay_active, :powerplay_type, :ball_thrown, :run_scored, :fours, :sixes, :wickets, :wides, :no_balls, :hattricks, :match_id])
-    |> validate_required([:number, :powerplay_active, :powerplay_type, :ball_thrown, :run_scored, :fours, :sixes, :wickets, :wides, :no_balls, :hattricks, :match_id])
+    |> cast(attrs, [:number, :powerplay_active, :powerplay_type, :ball_thrown, :run_scored, :fours, :sixes, :wickets, :wides, :no_balls, :hattricks, :match_id, :finished])
+    |> validate_required([:number, :powerplay_active, :powerplay_type, :ball_thrown, :run_scored, :fours, :sixes, :wickets, :wides, :no_balls, :hattricks, :match_id, :finished])
   end
 end

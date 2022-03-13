@@ -5,6 +5,7 @@ defmodule Scoreboard.Repo.Migrations.CreateOvers do
     create table(:overs) do
       add :number, :integer
       add :powerplay_active, :boolean, default: false, null: false
+      add :finished, :boolean, default: false, null: false
       add :powerplay_type, :string
       add :ball_thrown, :integer
       add :run_scored, :integer
