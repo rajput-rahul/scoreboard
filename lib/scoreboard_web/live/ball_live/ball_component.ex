@@ -1,4 +1,4 @@
-defmodule BallLive.Ball do
+defmodule BallLive.BallComponent do
   use Phoenix.Component
 
   # Optionally also bring the HTML helpers
