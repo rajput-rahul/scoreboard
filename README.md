@@ -17,3 +17,14 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+## Things done
+- Live view setup
+- UI for the scoreboard
+- Schema setup
+- Working demo
+## Things to implement
+- Put new ball creation behind authentication.
+- Make Admin page.
+- Make homepage with more matches info.
+- Live total score update.
